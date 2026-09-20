@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: telegram-ai-agent
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python telegram_bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ADMIN_TELEGRAM_ID
+        sync: false
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_API_BASE
+        value: https://openrouter.ai/api/v1
